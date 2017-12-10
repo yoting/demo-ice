@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="slice2java"  >
+<target name="slice2java">
+  <taskdef classname="Slice2JavaTask" name="slice2java" classpathref="maven.plugin.classpath"/>
+  <slice2java outputdir="ice/generated" underscore="true" stream="true">
+    <fileset dir="ice/slice">
+      <include name="**/*.ice"/>
+    </fileset>
+  </slice2java>
+</target>
+</project>

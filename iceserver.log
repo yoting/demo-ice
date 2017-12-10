@@ -1,0 +1,102 @@
+-- 17-12-9 22:41:05:014 ThreadPool: creating Ice.ThreadPool.Client: Size = 1, SizeMax = 1, SizeWarn = 0
+-- 17-12-9 22:41:05:202 SharedCommunicator: ThreadPool: creating Ice.ThreadPool.Client: Size = 1, SizeMax = 1, SizeWarn = 0
+-- 17-12-9 22:41:05:355 SharedCommunicator: Network: attempting to bind to tcp socket 127.0.0.1:10000
+!! 17-12-9 22:41:05:367 error: main: ServiceManager: exception while starting service MyService: Ice.SocketException
+       error = 0
+   IceBox.FailureException
+       reason = "ServiceManager: exception while starting service MyService: Ice.SocketException
+                     error = 0"
+   	at IceBox.ServiceManagerI.start(ServiceManagerI.java:637)
+   	at IceBox.ServiceManagerI.run(ServiceManagerI.java:355)
+   	at IceBox.Server.run(Server.java:54)
+   	at Ice.Application.doMain(Application.java:200)
+   	at Ice.Application.main(Application.java:180)
+   	at IceBox.Server.main(Server.java:32)
+   Caused by: Ice.SocketException
+       error = 0
+   	at IceInternal.Network.doBind(Network.java:223)
+   	at IceInternal.TcpAcceptor.<init>(TcpAcceptor.java:119)
+   	at IceInternal.TcpEndpointI.acceptor(TcpEndpointI.java:403)
+   	at IceInternal.IncomingConnectionFactory.<init>(IncomingConnectionFactory.java:367)
+   	at Ice.ObjectAdapterI.<init>(ObjectAdapterI.java:1000)
+   	at IceInternal.ObjectAdapterFactory.createObjectAdapter(ObjectAdapterFactory.java:130)
+   	at Ice.CommunicatorI.createObjectAdapter(CommunicatorI.java:77)
+   	at com.gusi.demo.book.OnlineBookImpl.start(OnlineBookImpl.java:23)
+   	at IceBox.ServiceManagerI.start(ServiceManagerI.java:576)
+   	... 5 more
+   Caused by: java.net.BindException: Address already in use: bind
+   	at sun.nio.ch.Net.bind0(Native Method)
+   	at sun.nio.ch.Net.bind(Net.java:433)
+   	at sun.nio.ch.Net.bind(Net.java:425)
+   	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+   	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+   	at IceInternal.Network.doBind(Network.java:217)
+   	... 13 more
+   
+-- 17-12-9 22:43:12:204 ThreadPool: creating Ice.ThreadPool.Client: Size = 1, SizeMax = 1, SizeWarn = 0
+-- 17-12-9 22:43:12:372 SharedCommunicator: ThreadPool: creating Ice.ThreadPool.Client: Size = 1, SizeMax = 1, SizeWarn = 0
+-- 17-12-9 22:43:12:472 SharedCommunicator: Network: attempting to bind to tcp socket 127.0.0.1:10000
+!! 17-12-9 22:43:12:483 error: main: ServiceManager: exception while starting service MyService: Ice.SocketException
+       error = 0
+   IceBox.FailureException
+       reason = "ServiceManager: exception while starting service MyService: Ice.SocketException
+                     error = 0"
+   	at IceBox.ServiceManagerI.start(ServiceManagerI.java:637)
+   	at IceBox.ServiceManagerI.run(ServiceManagerI.java:355)
+   	at IceBox.Server.run(Server.java:54)
+   	at Ice.Application.doMain(Application.java:200)
+   	at Ice.Application.main(Application.java:180)
+   	at IceBox.Server.main(Server.java:32)
+   Caused by: Ice.SocketException
+       error = 0
+   	at IceInternal.Network.doBind(Network.java:223)
+   	at IceInternal.TcpAcceptor.<init>(TcpAcceptor.java:119)
+   	at IceInternal.TcpEndpointI.acceptor(TcpEndpointI.java:403)
+   	at IceInternal.IncomingConnectionFactory.<init>(IncomingConnectionFactory.java:367)
+   	at Ice.ObjectAdapterI.<init>(ObjectAdapterI.java:1000)
+   	at IceInternal.ObjectAdapterFactory.createObjectAdapter(ObjectAdapterFactory.java:130)
+   	at Ice.CommunicatorI.createObjectAdapter(CommunicatorI.java:77)
+   	at com.gusi.demo.book.OnlineBookImpl.start(OnlineBookImpl.java:23)
+   	at IceBox.ServiceManagerI.start(ServiceManagerI.java:576)
+   	... 5 more
+   Caused by: java.net.BindException: Address already in use: bind
+   	at sun.nio.ch.Net.bind0(Native Method)
+   	at sun.nio.ch.Net.bind(Net.java:433)
+   	at sun.nio.ch.Net.bind(Net.java:425)
+   	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+   	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+   	at IceInternal.Network.doBind(Network.java:217)
+   	... 13 more
+   
+-- 17-12-9 22:44:06:598 ThreadPool: creating Ice.ThreadPool.Client: Size = 1, SizeMax = 1, SizeWarn = 0
+-- 17-12-9 22:44:06:762 SharedCommunicator: ThreadPool: creating Ice.ThreadPool.Client: Size = 1, SizeMax = 1, SizeWarn = 0
+-- 17-12-9 22:44:06:862 SharedCommunicator: Network: attempting to bind to tcp socket 127.0.0.1:10002
+-- 17-12-9 22:44:06:863 SharedCommunicator: Network: accepting tcp connections at 127.0.0.1:10002
+-- 17-12-9 22:44:06:868 SharedCommunicator: ThreadPool: creating Ice.ThreadPool.Server: Size = 1, SizeMax = 1, SizeWarn = 0
+-- 17-12-9 22:44:06:869 SharedCommunicator: Network: published endpoints for object adapter `MyService':
+   tcp -h localhost -p 10002
+-- 17-12-9 22:45:20:014 SharedCommunicator: Network: accepted tcp connection
+   local address = 127.0.0.1:10002
+   remote address = 127.0.0.1:51960
+-- 17-12-9 22:45:20:150 SharedCommunicator: Network: closing tcp connection
+   local address = 127.0.0.1:10002
+   remote address = 127.0.0.1:51960
+-- 17-12-9 22:45:55:288 SharedCommunicator: Network: accepted tcp connection
+   local address = 127.0.0.1:10002
+   remote address = 127.0.0.1:51975
+-- 17-12-9 22:45:55:344 SharedCommunicator: Network: closing tcp connection
+   local address = 127.0.0.1:10002
+   remote address = 127.0.0.1:51975
+-- 17-12-9 22:48:28:351 ThreadPool: creating Ice.ThreadPool.Client: Size = 1, SizeMax = 1, SizeWarn = 0
+-- 17-12-9 22:48:28:520 SharedCommunicator: ThreadPool: creating Ice.ThreadPool.Client: Size = 1, SizeMax = 1, SizeWarn = 0
+-- 17-12-9 22:48:28:625 SharedCommunicator: Network: attempting to bind to tcp socket 127.0.0.1:10002
+-- 17-12-9 22:48:28:626 SharedCommunicator: Network: accepting tcp connections at 127.0.0.1:10002
+-- 17-12-9 22:48:28:632 SharedCommunicator: ThreadPool: creating Ice.ThreadPool.Server: Size = 1, SizeMax = 1, SizeWarn = 0
+-- 17-12-9 22:48:28:633 SharedCommunicator: Network: published endpoints for object adapter `MyService':
+   tcp -h localhost -p 10002
+-- 17-12-9 22:48:36:532 SharedCommunicator: Network: accepted tcp connection
+   local address = 127.0.0.1:10002
+   remote address = 127.0.0.1:52026
+-- 17-12-9 22:48:36:623 SharedCommunicator: Network: closing tcp connection
+   local address = 127.0.0.1:10002
+   remote address = 127.0.0.1:52026
