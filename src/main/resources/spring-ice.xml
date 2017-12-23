@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:ice="http://gusi.com/schema/ice"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://gusi.com/schema/ice  http://gusi.com/schema/ice/ice.xsd">
+
+    <ice:reference id="helloService" identity="HelloService" type="::com::ice::demo::hello::HelloService"/>
+    <ice:reference id="onlineBook" identity="OnlineBook" type="::com::ice::demo::book::OnlineBook"/>
+</beans>

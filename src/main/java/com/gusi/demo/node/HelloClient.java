@@ -1,31 +1,33 @@
-package com.gusi.demo.hello;
+package com.gusi.demo.node;
 
 import com.ice.demo.hello.HelloServicePrx;
 import com.ice.demo.hello.HelloServicePrxHelper;
 
+import java.util.Date;
+
 /**
- * 客户端调运类<br>
- * Created by yydeng on 2017/12/8.
+ * node1 client
+ *
+ * @author yydeng
+ * @create 2017-12-12 18:54
  */
 public class HelloClient {
 	public static void main(String[] args) {
+		String[] initPrames = new String[] {
+				"--Ice.Default.Locator=IceGrid/Locator:tcp -h 10.168.18.144 -p 4061" };
 		int status = 0;
 		Ice.Communicator communicator = null;
 		try {
 			// 获取communicator通信器
-			communicator = Ice.Util.initialize(args);
-
+			communicator = Ice.Util.initialize(initPrames);
 			// 构造一个Proxy对象，通过传入远程服务单元的名称、网络协议、Ip和端口
-			Ice.ObjectPrx base = communicator.stringToProxy("HelloServer:default -p 10001");
+			Ice.ObjectPrx base = communicator.stringToProxy("HelloService");
 
-			// 通过checkedCast向下转型，获取真实服务接口的代理对象
 			HelloServicePrx prxy = HelloServicePrxHelper.checkedCast(base);
 			if (prxy == null) {
 				throw new NullPointerException("prxy is null!");
 			}
-
-			// 通过代理对象调运服务接口
-			prxy.say("ice");
+			prxy.say(""+new Date());
 			int result = prxy.calculate(1, 2);
 			System.out.println(result);
 		} catch (Exception e) {

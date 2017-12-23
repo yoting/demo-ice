@@ -4,6 +4,7 @@ import Ice.Current;
 import com.ice.demo.hello._HelloServiceDisp;
 
 /**
+ * 服务端具体实现类<br>
  * Created by yydeng on 2017/12/8.
  */
 public class HelloServiceImpl extends _HelloServiceDisp {

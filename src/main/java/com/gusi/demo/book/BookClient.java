@@ -1,6 +1,8 @@
 package com.gusi.demo.book;
 
 import com.ice.demo.book.Message;
+import com.ice.demo.book.OfflineBookPrx;
+import com.ice.demo.book.OfflineBookPrxHelper;
 import com.ice.demo.book.OnlineBookPrx;
 import com.ice.demo.book.OnlineBookPrxHelper;
 import com.ice.demo.hello.HelloServicePrx;
@@ -17,9 +19,12 @@ public class BookClient {
 			// 获取communicator通信器
 			communicator = Ice.Util.initialize(args);
 			// 构造一个Proxy对象，通过传入远程服务单元的名称、网络协议、Ip和端口
-			Ice.ObjectPrx base = communicator.stringToProxy("MyService:default -p 10002");
+			// Ice.ObjectPrx base =
+			// communicator.stringToProxy("OnlineBookServer:default -p 10001");
+			Ice.ObjectPrx base = communicator.stringToProxy("OfflineBookServer:default -p 10002");
 
-			OnlineBookPrx prxy = OnlineBookPrxHelper.checkedCast(base);
+			// OnlineBookPrx prxy = OnlineBookPrxHelper.checkedCast(base);
+			OfflineBookPrx prxy = OfflineBookPrxHelper.checkedCast(base);
 			if (prxy == null) {
 				throw new NullPointerException("prxy is null!");
 			}
@@ -31,7 +36,9 @@ public class BookClient {
 			msg.valid = true;
 			msg.content = "this is a good book!";
 
-			System.out.println(prxy.bookTick(msg).toString());
+			boolean[] result = prxy.bookTrance(new Message[] { msg });
+			// Message result = prxy.bookTick(msg);
+			System.out.println(result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://gusi.com/schema/ice"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://gusi.com/schema/ice">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+
+        <!-- ice:reference -->
+        <xsd:element name="reference" type="referenceType">
+                <xsd:annotation>
+                        <xsd:documentation><![CDATA[ registry config ]]></xsd:documentation>
+                </xsd:annotation>
+        </xsd:element>
+        <xsd:complexType name="referenceType">
+                <xsd:attribute name="id" type="xsd:ID" use="required" />
+                <xsd:attribute name="identity" type="xsd:string" use="required" />
+                <xsd:attribute name="type" type="xsd:string" use="required" />
+        </xsd:complexType>
+
+</xsd:schema>

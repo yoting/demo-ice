@@ -3,41 +3,16 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.gusi.demo</groupId>
     <artifactId>demoIce</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>demoIce Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
-    <repositories>
-        <repository>
-            <id>oschina-repos</id>
-            <name>Oschina Releases</name>
-            <url>http://maven.oschina.net/content/groups/public</url>
-        </repository>
-
-        <repository>
-            <id>java-repos</id>
-            <name>Java Repository</name>
-            <url>http://download.java.net/maven/2/</url>
-        </repository>
-
-        <repository>
-            <id>springsource-repos</id>
-            <name>SpringSource Repository</name>
-            <url>http://repo.spring.io/release/</url>
-        </repository>
-
-        <repository>
-            <id>nexus-aliyun</id>
-            <name>Nexus aliyun</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-        </repository>
-
-    </repositories>
-
     <properties>
-        <slice.home>C:\Program Files (x86)\ZeroC\Ice-3.4.1</slice.home>
+        <slice.home>C:\Develop\ZeroC\Ice-3.4.1</slice.home>
         <ice.version>3.4.1</ice.version>
+        <ice.slice.dir>ice\slice</ice.slice.dir>
+        <ice.generated.dir>ice\generated</ice.generated.dir>
     </properties>
 
     <dependencies>
@@ -52,11 +27,45 @@
             <groupId>com.zeroc</groupId>
             <artifactId>ice</artifactId>
             <version>${ice.version}</version>
-            <scope>system</scope>
-            <systemPath>${slice.home}/lib/Ice.jar</systemPath>
+        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>com.zeroc</groupId>-->
+        <!--<artifactId>ant-ice</artifactId>-->
+        <!--<version>${ice.version}</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.21</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.21</version>
+        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>log4j</groupId>-->
+        <!--<artifactId>log4j</artifactId>-->
+        <!--<version>1.2.15</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>4.2.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>4.2.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>4.2.5.RELEASE</version>
         </dependency>
     </dependencies>
-
     <build>
         <finalName>demoIce</finalName>
 
@@ -103,8 +112,6 @@
                         <groupId>com.zeroc</groupId>
                         <artifactId>ant-ice</artifactId>
                         <version>${ice.version}</version>
-                        <scope>system</scope>
-                        <systemPath>${slice.home}/lib/ant-ice.jar</systemPath>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -143,7 +150,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.bow.server.DemoServer</mainClass>
+                            <mainClass>IceBox.Server</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

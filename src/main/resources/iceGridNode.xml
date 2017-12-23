@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<icegrid>
+    <application name="DemoApplication">
+        <node name="node1">
+            <server id="HelloServer" exe="java" activation="on-demand">
+                <option>com.gusi.demo.node.HelloServer</option>
+                <!--<option>IceBox.Server</option>-->
+                <env>CLASSPATH=D:\AllWorkspace\ideaWorkspace01\demoIce\target\lib\*;D:\AllWorkspace\ideaWorkspace01\demoIce\target\classes</env>
+
+                <adapter name="HelloAdapter" id="HelloAdapter" endpoints="tcp -h 127.0.0.1">
+                    <object identity="HelloService" type="::hello::HelloService"/>
+                </adapter>
+            </server>
+        </node>
+        <node name="node2">
+            <server id="BookServer" exe="java" activation="on-demand">
+                <!--<option>IceBox.Server</option>-->
+                <option>com.gusi.demo.node.BookServer</option>
+                <env>CLASSPATH=D:\AllWorkspace\ideaWorkspace01\demoIce\target\lib\*;D:\AllWorkspace\ideaWorkspace01\demoIce\target\classes</env>
+
+                <adapter name="BookAdapter" id="BookAdapter" endpoints="tcp -h 127.0.0.1">
+                    <object identity="OnlineBook" type="::book::OnlineBook"/>
+                    <object identity="OfflineBook" type="::book::OfflineBook"/>
+                </adapter>
+            </server>
+        </node>
+
+        <!-- 部署的时候可以用java -jar的形式启动
+        <node name="node3">
+            <server id="PrinterServer" exe="java" activation="on-demand">
+                <adapter name="PrinterAdapter" endpoints="tcp -h 127.0.0.1">
+                    <object identity="SimplePrinter" type="::Demo::Printer" property="Identity"/>
+                </adapter>
+                <option>-jar</option>
+                <option>D:\repository\ice-demo2\target\ice-demo2-1.0-SNAPSHOT.jar</option>
+                <property name="Ice.Trace.Network" value="1"/>
+                <properties>
+                    <property name="Ice.ThreadPool.Server.SizeMax" value="1" />
+                </properties>
+                <property name="IceMX.Metrics.Debug.GroupBy" value="id"/>
+                <property name="IceMX.Metrics.Debug.Disabled" value="1"/>
+                <property name="IceMX.Metrics.ByParent.GroupBy" value="parent"/>
+                <property name="IceMX.Metrics.ByParent.Disabled" value="1"/>
+            </server>
+        </node>
+        -->
+    </application>
+</icegrid>
